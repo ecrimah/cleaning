@@ -89,10 +89,12 @@ export function Navbar() {
 
             {/* Mobile Nav Trigger */}
             <Sheet>
-              <SheetTrigger asChild>
-                <Button variant="ghost" size="icon" className="lg:hidden" aria-label="Toggle menu">
-                  <Menu className="h-6 w-6" />
-                </Button>
+              <SheetTrigger
+                render={
+                  <Button variant="ghost" size="icon" className="lg:hidden" aria-label="Toggle menu" />
+                }
+              >
+                <Menu className="h-6 w-6" />
               </SheetTrigger>
               <SheetContent side="right" className="w-[85vw] max-w-[400px] sm:w-[400px] border-l-0 shadow-2xl p-0 flex flex-col bg-background/95 backdrop-blur-xl">
                 {/* Header inside sidebar */}
