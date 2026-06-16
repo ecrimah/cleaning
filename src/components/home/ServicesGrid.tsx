@@ -2,108 +2,119 @@
 
 import { Container } from "@/components/layout/Container";
 import { Section } from "@/components/layout/Section";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { buttonVariants } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
-import { Home, Building2, Sparkles, Droplets } from "lucide-react";
 import Link from "next/link";
+import Image from "next/image";
 import { motion } from "framer-motion";
+import { SERVICES } from "@/lib/site";
+import { ArrowRight } from "lucide-react";
+import { buttonVariants } from "@/components/ui/button";
 
-const services = [
-  {
-    title: "House Cleaning",
-    description: "Keep your home spotless and comfortable with our regular cleaning services.",
-    icon: Home,
-    href: "/services/house-cleaning",
-    featured: false,
-  },
-  {
-    title: "Office Cleaning",
-    description: "A clean workspace boosts productivity. We ensure your office shines.",
-    icon: Building2,
-    href: "/services/office-cleaning",
-    featured: true,
-  },
-  {
-    title: "Deep Cleaning",
-    description: "Thorough cleaning for every nook and cranny. Ideal for seasonal refreshes.",
-    icon: Sparkles,
-    href: "/services/deep-cleaning",
-    featured: false,
-  },
-  {
-    title: "Move-In / Out",
-    description: "Leave the old place spotless and start fresh in your new home.",
-    icon: Droplets,
-    href: "/services/move-in-out",
-    featured: false,
-  },
-];
+const IMAGES: Record<string, string> = {
+  "residential-cleaning": "https://images.unsplash.com/photo-1581578731548-c64695cc6952?q=80&w=2070&auto=format&fit=crop",
+  "commercial-cleaning": "https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=2069&auto=format&fit=crop",
+  "industrial-cleaning": "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?q=80&w=2070&auto=format&fit=crop",
+  "specialized-cleaning": "https://images.unsplash.com/photo-1584622781564-1d987f7333c1?q=80&w=1974&auto=format&fit=crop",
+  "sanitation-services": "https://images.unsplash.com/photo-1584467735815-f778f274e296?q=80&w=1974&auto=format&fit=crop",
+  "janitorial-support": "https://images.unsplash.com/photo-1585421514284-efb74c2b69ba?q=80&w=2070&auto=format&fit=crop",
+  "facility-maintenance": "https://images.unsplash.com/photo-1574360773950-84eb3b9eec45?q=80&w=2070&auto=format&fit=crop",
+  "waste-management": "https://images.unsplash.com/photo-1532996122724-e3c354a0b15b?q=80&w=2070&auto=format&fit=crop",
+};
+
+const getGridClass = (index: number) => {
+  switch (index) {
+    case 0:
+      return "md:col-span-2 md:row-span-2 h-[400px] md:h-[600px]";
+    case 3:
+      return "md:col-span-2 md:row-span-1 h-[300px] md:h-[284px]";
+    default:
+      return "md:col-span-1 md:row-span-1 h-[300px] md:h-[284px]";
+  }
+};
 
 export function ServicesGrid() {
   return (
-    <Section className="bg-muted/30">
+    <Section className="bg-background pt-24 pb-32">
       <Container>
-        <div className="text-center space-y-4 max-w-2xl mx-auto mb-16">
-          <h2 className="text-primary font-bold tracking-wide uppercase text-sm">Our Services</h2>
-          <h3 className="text-4xl md:text-5xl font-heading font-bold text-foreground">
-            Best Services For You
-          </h3>
-          <p className="text-muted-foreground text-lg">
-            We offer a wide range of cleaning services tailored to meet your specific needs.
+        <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 space-y-6 md:space-y-0">
+          <div className="max-w-2xl space-y-4">
+            <h2 className="text-primary font-bold tracking-wider uppercase text-sm flex items-center gap-2">
+              <span className="w-8 h-[2px] bg-primary"></span>
+              Premium Solutions
+            </h2>
+            <h3 className="text-4xl md:text-5xl lg:text-6xl font-heading font-bold text-foreground leading-tight">
+              Spaces Designed to <span className="text-primary italic">Shine.</span>
+            </h3>
+          </div>
+          <p className="text-muted-foreground text-lg max-w-md md:text-right pb-2">
+            Elevating environments across Accra with tailored cleaning, sanitation, and maintenance services.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-          {services.map((service, index) => {
-            const Icon = service.icon;
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-6 md:gap-8">
+          {SERVICES.map((service, index) => {
+            const image = IMAGES[service.slug] ?? IMAGES["specialized-cleaning"];
             return (
               <motion.div
-                key={service.title}
-                initial={{ opacity: 0, y: 20 }}
+                key={service.slug}
+                initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.4, delay: index * 0.1 }}
+                viewport={{ once: true, margin: "-100px" }}
+                transition={{ duration: 0.6, delay: (index % 4) * 0.1 }}
+                className={cn("group relative rounded-3xl overflow-hidden shadow-xl", getGridClass(index))}
               >
-                <Card 
-                  className={`h-full transition-all duration-300 hover:-translate-y-2 border-0 shadow-lg ${
-                    service.featured 
-                      ? "bg-primary text-primary-foreground scale-105 shadow-xl shadow-primary/20" 
-                      : "bg-background hover:shadow-xl"
-                  }`}
-                >
-                  <CardHeader className="text-center pt-8 pb-4">
-                    <div className={`mx-auto p-4 rounded-2xl w-fit mb-4 ${
-                      service.featured ? "bg-primary-foreground/10" : "bg-primary/10"
-                    }`}>
-                      <Icon className={`h-8 w-8 ${
-                        service.featured ? "text-primary-foreground" : "text-primary"
-                      }`} />
+                {/* Background Image */}
+                <Image
+                  src={image}
+                  alt={service.title}
+                  fill
+                  className="object-cover transition-transform duration-1000 ease-[cubic-bezier(0.25,1,0.5,1)] group-hover:scale-110"
+                />
+                
+                {/* Dark Gradient Overlay */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-black/10 transition-opacity duration-500 group-hover:opacity-80" />
+
+                {/* Content Container */}
+                <div className="absolute inset-0 p-5 md:p-6 flex flex-col justify-end">
+                  {/* Glassmorphic Panel */}
+                  <div className="backdrop-blur-md bg-white/10 border border-white/20 rounded-2xl p-5 md:p-6 transition-all duration-500 ease-[cubic-bezier(0.25,1,0.5,1)] group-hover:bg-black/40 group-hover:border-white/30">
+                    <div className="flex items-center justify-between">
+                      <h4 className="text-xl md:text-2xl font-heading font-bold text-white drop-shadow-sm">
+                        {service.title}
+                      </h4>
+                      <div className="bg-primary/90 text-white p-2 rounded-full transform scale-0 opacity-0 group-hover:scale-100 group-hover:opacity-100 transition-all duration-500 delay-100 shadow-lg">
+                        <ArrowRight className="h-5 w-5" />
+                      </div>
                     </div>
-                    <CardTitle className="text-xl font-heading">{service.title}</CardTitle>
-                  </CardHeader>
-                  <CardContent className="text-center pb-8 space-y-6">
-                    <CardDescription className={`text-base ${
-                      service.featured ? "text-primary-foreground/80" : "text-muted-foreground"
-                    }`}>
-                      {service.description}
-                    </CardDescription>
-                    <Link 
-                      href={service.href}
-                      className={cn(buttonVariants({ variant: service.featured ? "secondary" : "outline" }), "rounded-full w-full")}
-                    >
-                      Read More
-                    </Link>
-                  </CardContent>
-                </Card>
+
+                    <div className="grid grid-rows-[0fr] group-hover:grid-rows-[1fr] transition-[grid-template-rows] duration-500 ease-[cubic-bezier(0.25,1,0.5,1)]">
+                      <div className="overflow-hidden">
+                        <div className="pt-4">
+                          <p className="text-white/90 text-sm md:text-base line-clamp-2 mb-5 font-light leading-relaxed">
+                            {service.description}
+                          </p>
+                          <Link
+                            href={`/services/${service.slug}`}
+                            className="block w-full text-center bg-white text-black font-semibold py-3 rounded-xl hover:bg-primary hover:text-white transition-all duration-300 shadow-md"
+                          >
+                            Explore Service
+                          </Link>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
               </motion.div>
             );
           })}
         </div>
 
-        <div className="mt-12 text-center">
-          <Link href="/services" className={cn(buttonVariants({ variant: "link" }), "text-primary font-semibold text-lg")}>
-            View All Services →
+        <div className="mt-20 text-center">
+          <Link 
+            href="/services" 
+            className={cn(buttonVariants({ size: "lg" }), "rounded-full px-8 h-14 text-lg shadow-xl hover:shadow-2xl transition-all duration-300 hover:-translate-y-1")}
+          >
+            View Our Full Catalog
           </Link>
         </div>
       </Container>

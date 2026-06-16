@@ -77,7 +77,7 @@ export function WhyChooseUs() {
         >
           <Image
             src="/images/why-choose-us.png"
-            alt="Cleaning detail"
+            alt="Cleanova HQ specialist performing detailed office cleaning in Accra"
             fill
             className="object-cover"
           />

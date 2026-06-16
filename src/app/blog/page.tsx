@@ -5,10 +5,13 @@ import Image from "next/image";
 import Link from "next/link";
 import { buttonVariants } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
+import { PageHero, PageBreadcrumb } from "@/components/layout/PageHero";
 
 export const metadata = {
-  title: "Blog | Premium Cleaning Services",
-  description: "Cleaning tips, company news, and industry insights from PremiumClean.",
+  title: "Cleaning Tips & Insights",
+  description:
+    "Cleaning tips, hygiene guides, and industry insights from Cleanova HQ — your trusted cleaning company in Accra, Ghana.",
+  alternates: { canonical: "/blog" },
 };
 
 const posts = [
@@ -38,14 +41,14 @@ const posts = [
 export default function BlogPage() {
   return (
     <>
-      <Section className="bg-primary/5 py-24 md:py-32">
-        <Container className="text-center max-w-3xl">
-          <h1 className="text-5xl md:text-6xl font-heading font-bold text-foreground mb-6">Our Blog</h1>
-          <p className="text-lg text-muted-foreground leading-relaxed">
-            Tips, tricks, and news from the cleaning experts at PremiumClean.
-          </p>
-        </Container>
-      </Section>
+      <PageHero
+        eyebrow="Blog"
+        title="Our Blog"
+        description="Tips, tricks, and news from the cleaning experts at Cleanova HQ."
+        image="/images/blog-eco-cleaning.png"
+        imageAlt="Eco-friendly cleaning tips from Cleanova HQ"
+      />
+      <PageBreadcrumb items={[{ label: "Home", href: "/" }, { label: "Blog" }]} />
 
       <Section className="bg-background">
         <Container className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">

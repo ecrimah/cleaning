@@ -5,19 +5,20 @@ import { Section } from "@/components/layout/Section";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
+import { PageHero, PageBreadcrumb } from "@/components/layout/PageHero";
 
 export default function BookPage() {
   return (
     <>
-      <Section className="bg-primary/5 py-24 md:py-32">
-        <Container className="text-center max-w-3xl">
-          <h1 className="text-5xl md:text-6xl font-heading font-bold text-foreground mb-6">Book Your Cleaning</h1>
-          <p className="text-lg text-muted-foreground leading-relaxed">
-            Ready for a spotless space? Fill out the form below to request a service or get a free estimate. 
-            We'll be in touch shortly to confirm your booking.
-          </p>
-        </Container>
-      </Section>
+      <PageHero
+        eyebrow="Book Now"
+        title="Book Your Cleaning"
+        description="Ready for a spotless space? Fill out the form below to request a service or get a free estimate. We'll be in touch shortly to confirm your booking."
+        mobileDescription="Request a service or get a free estimate — we'll confirm your booking shortly."
+        image="/images/hero-cleaning.png"
+        imageAlt="Book professional cleaning with Cleanova HQ in Accra"
+      />
+      <PageBreadcrumb items={[{ label: "Home", href: "/" }, { label: "Book" }]} />
 
       <Section className="bg-background">
         <Container className="max-w-3xl mx-auto">
@@ -31,10 +32,14 @@ export default function BookPage() {
                   <div className="space-y-2">
                     <label htmlFor="serviceType" className="text-sm font-medium">Service Type</label>
                     <select id="serviceType" className="flex h-12 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50">
-                      <option>Regular Cleaning</option>
-                      <option>Deep Cleaning</option>
-                      <option>Move In/Out</option>
-                      <option>Office Cleaning</option>
+                      <option>Residential Cleaning</option>
+                      <option>Commercial Cleaning</option>
+                      <option>Industrial Cleaning</option>
+                      <option>Specialized / Deep Cleaning</option>
+                      <option>Sanitation & Disinfection</option>
+                      <option>Janitorial Support</option>
+                      <option>Facility Maintenance</option>
+                      <option>Waste Management</option>
                     </select>
                   </div>
                   <div className="space-y-2">
@@ -79,7 +84,7 @@ export default function BookPage() {
                   </div>
                   <div className="space-y-2">
                     <label htmlFor="phone" className="text-sm font-medium">Phone</label>
-                    <Input id="phone" type="tel" placeholder="(555) 123-4567" className="bg-background h-12" />
+                    <Input id="phone" type="tel" placeholder="059 276 1501" className="bg-background h-12" />
                   </div>
                 </div>
                 <div className="space-y-2">

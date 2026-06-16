@@ -41,7 +41,7 @@ export function CallbackForm() {
                 </div>
                 <div className="space-y-2">
                   <label htmlFor="phone" className="text-sm font-medium">Phone Number</label>
-                  <Input id="phone" type="tel" placeholder="(555) 123-4567" className="h-12 rounded-xl" />
+                  <Input id="phone" type="tel" placeholder="059 276 1501" className="h-12 rounded-xl" />
                 </div>
               </div>
               <div className="space-y-2">

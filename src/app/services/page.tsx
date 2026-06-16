@@ -1,25 +1,52 @@
+import type { Metadata } from "next";
 import { Container } from "@/components/layout/Container";
 import { Section } from "@/components/layout/Section";
 import { ServicesGrid } from "@/components/home/ServicesGrid";
 import { QuickEstimate } from "@/components/home/QuickEstimate";
+import { PageHero, PageBreadcrumb } from "@/components/layout/PageHero";
+import { JsonLd, breadcrumbSchema } from "@/components/seo/JsonLd";
+import { siteConfig, SERVICES } from "@/lib/site";
 
-export const metadata = {
-  title: "Our Services | Premium Cleaning Services",
-  description: "Explore our comprehensive range of cleaning services for homes, offices, and commercial spaces.",
+export const metadata: Metadata = {
+  title: "Cleaning Services in Accra — Residential, Commercial & Industrial",
+  description:
+    "Explore Cleanova HQ's cleaning services in Accra, Ghana: residential, commercial, industrial, and specialized cleaning, sanitation, janitorial support, facility maintenance, and waste management.",
+  alternates: { canonical: "/services" },
+};
+
+const itemListSchema = {
+  "@context": "https://schema.org",
+  "@type": "ItemList",
+  name: "Cleanova HQ Cleaning Services",
+  itemListElement: SERVICES.map((service, index) => ({
+    "@type": "ListItem",
+    position: index + 1,
+    name: service.title,
+    url: `${siteConfig.url}/services/${service.slug}`,
+  })),
 };
 
 export default function ServicesPage() {
   return (
     <>
-      <Section className="bg-primary/5 py-24 md:py-32">
-        <Container className="text-center max-w-3xl">
-          <h1 className="text-5xl md:text-6xl font-heading font-bold text-foreground mb-6">Our Services</h1>
-          <p className="text-lg text-muted-foreground leading-relaxed">
-            From routine house cleaning to deep office sanitization, we have a service tailored to meet your exact needs. 
-            Discover how we can make your space shine.
-          </p>
-        </Container>
-      </Section>
+      <JsonLd
+        data={[
+          itemListSchema,
+          breadcrumbSchema([
+            { name: "Home", path: "/" },
+            { name: "Services", path: "/services" },
+          ]),
+        ]}
+      />
+      <PageHero
+        eyebrow="Our Services"
+        title="Our Cleaning Services"
+        description="From routine home cleaning to industrial facility upkeep, Cleanova HQ offers a complete range of cleaning, sanitation, and maintenance services across Accra and Greater Ghana."
+        mobileDescription="Complete cleaning, sanitation, and maintenance services across Accra."
+        image="/images/gallery-office.png"
+        imageAlt="Commercial cleaning services by Cleanova HQ in Accra"
+      />
+      <PageBreadcrumb items={[{ label: "Home", href: "/" }, { label: "Services" }]} />
 
       <QuickEstimate />
 
@@ -31,7 +58,7 @@ export default function ServicesPage() {
         <Container className="max-w-4xl text-center space-y-8">
           <h2 className="text-3xl font-heading font-bold">Need a Custom Cleaning Plan?</h2>
           <p className="text-lg text-muted-foreground">
-            If you have unique requirements or a large commercial space, we can create a customized cleaning plan tailored to your schedule and budget.
+            If you have unique requirements or a large commercial or industrial space, we can build a customized cleaning and maintenance plan tailored to your schedule and budget.
           </p>
         </Container>
       </Section>

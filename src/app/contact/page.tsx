@@ -6,88 +6,151 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Mail, Phone, MapPin } from "lucide-react";
+import { PageHero, PageBreadcrumb } from "@/components/layout/PageHero";
+import { siteConfig } from "@/lib/site";
+import { motion } from "framer-motion";
 
 export default function ContactPage() {
   return (
     <>
-      <Section className="bg-primary/5 py-24 md:py-32">
-        <Container className="text-center max-w-3xl">
-          <h1 className="text-5xl md:text-6xl font-heading font-bold text-foreground mb-6">Contact Us</h1>
-          <p className="text-lg text-muted-foreground leading-relaxed">
-            We'd love to hear from you. Whether you have a question about our services, pricing, or want to provide feedback, our team is ready to answer all your questions.
-          </p>
-        </Container>
-      </Section>
+      <PageHero
+        eyebrow="Contact"
+        title="Contact Us"
+        description="We'd love to hear from you. Whether you have a question about our services, pricing, or want to provide feedback, our team is ready to answer all your questions."
+        mobileDescription="Questions about our services or pricing? Our team is ready to help."
+        image="/images/team-2.png"
+        imageAlt="Contact Cleanova HQ cleaning team in Accra, Ghana"
+      />
+      <PageBreadcrumb items={[{ label: "Home", href: "/" }, { label: "Contact" }]} />
 
-      <Section className="bg-background">
-        <Container className="grid grid-cols-1 lg:grid-cols-2 gap-16">
-          <div className="space-y-12">
-            <div>
-              <h2 className="text-3xl font-heading font-bold mb-6">Get in Touch</h2>
-              <p className="text-muted-foreground">
-                Fill out the form and our team will get back to you within 24 hours. For urgent inquiries, please call us directly.
+      <Section className="bg-background relative overflow-hidden py-24">
+        {/* Abstract Background Shapes */}
+        <div className="absolute top-0 right-0 -translate-y-12 translate-x-1/3 w-[600px] h-[600px] bg-primary/5 rounded-full blur-3xl pointer-events-none" />
+        <div className="absolute bottom-0 left-0 translate-y-1/3 -translate-x-1/3 w-[600px] h-[600px] bg-blue-400/5 rounded-full blur-3xl pointer-events-none" />
+
+        <Container className="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-start max-w-7xl mx-auto">
+          
+          {/* Left Column - Contact Info */}
+          <div className="lg:col-span-5 space-y-8 lg:pr-8">
+            <motion.div 
+              initial={{opacity: 0, x: -20}} 
+              whileInView={{opacity: 1, x: 0}} 
+              viewport={{once: true}} 
+              transition={{duration: 0.5}}
+            >
+              <h2 className="text-4xl md:text-5xl font-heading font-bold mb-4 leading-tight">
+                Let's start a conversation.
+              </h2>
+              <p className="text-muted-foreground text-lg leading-relaxed">
+                Have a question about our services or need a custom quote? Our team is ready to help you create a cleaner, healthier space.
               </p>
-            </div>
-            
-            <div className="space-y-6">
-              <div className="flex items-start space-x-4">
-                <div className="bg-primary/10 p-3 rounded-full text-primary mt-1">
-                  <Phone className="h-6 w-6" />
-                </div>
-                <div>
-                  <h3 className="font-bold text-lg">Phone</h3>
-                  <p className="text-muted-foreground">(555) 123-4567</p>
-                  <p className="text-sm text-muted-foreground">Mon-Fri from 8am to 6pm</p>
-                </div>
-              </div>
-              <div className="flex items-start space-x-4">
-                <div className="bg-primary/10 p-3 rounded-full text-primary mt-1">
-                  <Mail className="h-6 w-6" />
-                </div>
-                <div>
-                  <h3 className="font-bold text-lg">Email</h3>
-                  <p className="text-muted-foreground">hello@premiumclean.com</p>
-                  <p className="text-sm text-muted-foreground">We reply within 24 hours</p>
-                </div>
-              </div>
-              <div className="flex items-start space-x-4">
-                <div className="bg-primary/10 p-3 rounded-full text-primary mt-1">
-                  <MapPin className="h-6 w-6" />
-                </div>
-                <div>
-                  <h3 className="font-bold text-lg">Office</h3>
-                  <p className="text-muted-foreground">123 Sparkle Avenue</p>
-                  <p className="text-muted-foreground">Clean City, NY 10001</p>
-                </div>
-              </div>
+            </motion.div>
+
+            <div className="space-y-4 pt-4">
+              {[
+                { 
+                  icon: Phone, 
+                  title: "Call Us", 
+                  content1: siteConfig.phonePrimaryDisplay, 
+                  link1: `tel:${siteConfig.phonePrimaryHref}`, 
+                  content2: siteConfig.phoneSecondaryDisplay, 
+                  link2: `tel:${siteConfig.phoneSecondaryHref}`, 
+                  desc: "Mon-Sat, 7am - 7pm" 
+                },
+                { 
+                  icon: Mail, 
+                  title: "Email Us", 
+                  content1: siteConfig.email, 
+                  link1: `mailto:${siteConfig.email}`, 
+                  desc: "We usually reply within 24 hours" 
+                },
+                { 
+                  icon: MapPin, 
+                  title: "Visit Us", 
+                  content1: `${siteConfig.address.locality}, ${siteConfig.address.region}`, 
+                  content2: siteConfig.address.country, 
+                  desc: "Serving all of Greater Accra" 
+                },
+              ].map((item, i) => (
+                <motion.div 
+                  key={i}
+                  initial={{opacity: 0, y: 20}} 
+                  whileInView={{opacity: 1, y: 0}} 
+                  viewport={{once: true}} 
+                  transition={{duration: 0.5, delay: 0.1 + i * 0.15}}
+                  className="group flex items-start gap-5 p-6 rounded-[2rem] bg-muted/30 border border-border/50 hover:bg-background hover:shadow-xl hover:border-primary/20 transition-all duration-300"
+                >
+                  <div className="bg-primary/10 text-primary p-4 rounded-2xl group-hover:scale-110 group-hover:bg-primary group-hover:text-white transition-all duration-300 shadow-sm">
+                    <item.icon className="w-6 h-6" />
+                  </div>
+                  <div>
+                    <h3 className="font-bold text-lg mb-1.5">{item.title}</h3>
+                    <div className="flex flex-col space-y-1 mb-2">
+                      {item.link1 ? (
+                        <a href={item.link1} className="text-foreground hover:text-primary font-medium transition-colors">{item.content1}</a>
+                      ) : (
+                        <span className="text-foreground font-medium">{item.content1}</span>
+                      )}
+                      {item.content2 && (
+                         item.link2 ? (
+                          <a href={item.link2} className="text-foreground hover:text-primary font-medium transition-colors">{item.content2}</a>
+                        ) : (
+                          <span className="text-foreground font-medium">{item.content2}</span>
+                        )
+                      )}
+                    </div>
+                    <p className="text-sm text-muted-foreground">{item.desc}</p>
+                  </div>
+                </motion.div>
+              ))}
             </div>
           </div>
 
-          <div className="bg-muted/30 p-8 rounded-3xl shadow-lg border">
-            <form className="space-y-6" onSubmit={(e) => e.preventDefault()}>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                <div className="space-y-2">
-                  <label htmlFor="firstName" className="text-sm font-medium">First Name</label>
-                  <Input id="firstName" placeholder="John" className="bg-background h-12" />
+          {/* Right Column - Form */}
+          <motion.div 
+            initial={{opacity: 0, scale: 0.95}} 
+            whileInView={{opacity: 1, scale: 1}} 
+            viewport={{once: true}} 
+            transition={{duration: 0.6}}
+            className="lg:col-span-7"
+          >
+            <div className="bg-background rounded-[2.5rem] p-8 md:p-12 shadow-[0_20px_50px_rgba(0,0,0,0.05)] border border-border/50 relative overflow-hidden group">
+              {/* Decorative top border line */}
+              <div className="absolute top-0 left-0 w-full h-1.5 bg-gradient-to-r from-primary via-blue-400 to-primary opacity-80" />
+              
+              <h3 className="text-2xl md:text-3xl font-bold font-heading mb-8">Send us a message</h3>
+              
+              <form className="space-y-6" onSubmit={(e) => e.preventDefault()}>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                  <div className="space-y-2.5">
+                    <label htmlFor="firstName" className="text-xs font-bold uppercase tracking-wider text-muted-foreground ml-1">First Name</label>
+                    <Input id="firstName" placeholder="John" className="bg-muted/40 border-0 h-14 px-5 rounded-2xl focus-visible:ring-2 focus-visible:ring-primary focus-visible:bg-transparent transition-all shadow-sm" />
+                  </div>
+                  <div className="space-y-2.5">
+                    <label htmlFor="lastName" className="text-xs font-bold uppercase tracking-wider text-muted-foreground ml-1">Last Name</label>
+                    <Input id="lastName" placeholder="Doe" className="bg-muted/40 border-0 h-14 px-5 rounded-2xl focus-visible:ring-2 focus-visible:ring-primary focus-visible:bg-transparent transition-all shadow-sm" />
+                  </div>
                 </div>
-                <div className="space-y-2">
-                  <label htmlFor="lastName" className="text-sm font-medium">Last Name</label>
-                  <Input id="lastName" placeholder="Doe" className="bg-background h-12" />
+                <div className="space-y-2.5">
+                  <label htmlFor="email" className="text-xs font-bold uppercase tracking-wider text-muted-foreground ml-1">Email Address</label>
+                  <Input id="email" type="email" placeholder="john@example.com" className="bg-muted/40 border-0 h-14 px-5 rounded-2xl focus-visible:ring-2 focus-visible:ring-primary focus-visible:bg-transparent transition-all shadow-sm" />
                 </div>
-              </div>
-              <div className="space-y-2">
-                <label htmlFor="email" className="text-sm font-medium">Email</label>
-                <Input id="email" type="email" placeholder="john@example.com" className="bg-background h-12" />
-              </div>
-              <div className="space-y-2">
-                <label htmlFor="message" className="text-sm font-medium">Message</label>
-                <Textarea id="message" placeholder="How can we help you?" className="bg-background min-h-[150px]" />
-              </div>
-              <Button size="lg" className="w-full h-14 rounded-xl text-lg font-semibold">
-                Send Message
-              </Button>
-            </form>
-          </div>
+                <div className="space-y-2.5">
+                  <label htmlFor="message" className="text-xs font-bold uppercase tracking-wider text-muted-foreground ml-1">How can we help?</label>
+                  <Textarea id="message" placeholder="Tell us about your cleaning needs..." className="bg-muted/40 border-0 min-h-[160px] p-5 rounded-2xl focus-visible:ring-2 focus-visible:ring-primary focus-visible:bg-transparent transition-all resize-y shadow-sm" />
+                </div>
+                
+                <Button size="lg" className="w-full h-14 rounded-2xl text-lg font-bold shadow-lg shadow-primary/25 hover:shadow-xl hover:shadow-primary/40 transition-all hover:-translate-y-1 bg-gradient-to-r from-primary to-blue-600 hover:from-primary hover:to-blue-500 mt-4">
+                  Send Message
+                </Button>
+                
+                <p className="text-xs text-center text-muted-foreground pt-4">
+                  By submitting this form, you agree to our privacy policy and terms of service. We won't spam you.
+                </p>
+              </form>
+            </div>
+          </motion.div>
+
         </Container>
       </Section>
     </>

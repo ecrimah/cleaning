@@ -22,7 +22,7 @@ export function AboutPreview() {
         >
           <Image
             src="/images/about-team.png"
-            alt="Cleaning professionals at work"
+            alt="Cleanova HQ cleaning professionals at work in Accra, Ghana"
             fill
             className="object-cover"
           />
@@ -43,12 +43,12 @@ export function AboutPreview() {
           className="space-y-8"
         >
           <div className="space-y-4">
-            <h2 className="text-secondary-foreground font-bold tracking-wide uppercase text-sm">About CleanWorld</h2>
+            <h2 className="text-secondary-foreground font-bold tracking-wide uppercase text-sm">About Cleanova HQ</h2>
             <h3 className="text-4xl lg:text-5xl font-heading font-bold text-foreground leading-tight">
               We Are Different in the <span className="text-primary">Cleaning Industry</span>
             </h3>
             <p className="text-muted-foreground leading-relaxed text-lg">
-              Our mission is to provide an exceptional cleaning experience that leaves your space spotless and your mind at ease. We carefully vet all our professionals and use top-tier, safe products.
+              Our mission is to provide an exceptional cleaning experience that leaves your space spotless and your mind at ease. We carefully vet and train every professional and use top-tier, safe products across Accra and Greater Ghana.
             </p>
           </div>
 

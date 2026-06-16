@@ -1,9 +1,10 @@
-import { Container } from "@/components/layout/Container";
-import { Section } from "@/components/layout/Section";
 import Image from "next/image";
 import Link from "next/link";
+import { Container } from "@/components/layout/Container";
+import { Section } from "@/components/layout/Section";
 import { buttonVariants } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
+import { PageHero, PageBreadcrumb } from "@/components/layout/PageHero";
 
 const blogImages: Record<string, string> = {
   "10-tips-maintaining-clean-home": "/images/blog-deep-cleaning.png",
@@ -15,7 +16,8 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const { slug } = await params;
   const title = slug.split("-").map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(" ");
   return {
-    title: `${title} | PremiumClean Blog`,
+    title: `${title}`,
+    alternates: { canonical: `/blog/${slug}` },
   };
 }
 
@@ -26,30 +28,34 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ slu
 
   return (
     <>
-      <Section className="bg-primary/5 py-24 md:py-32">
-        <Container className="max-w-3xl text-center">
-          <div className="text-primary font-semibold mb-4">Cleaning Tips • Oct 12, 2023</div>
-          <h1 className="text-4xl md:text-5xl font-heading font-bold text-foreground mb-8 leading-tight">
-            {title}
-          </h1>
-          <div className="flex items-center justify-center space-x-3 text-sm text-muted-foreground">
-            <Image src="/images/blog-author.png" alt="Author" width={40} height={40} className="rounded-full object-cover" />
-            <span>By Ama Mensah</span>
-          </div>
-        </Container>
-      </Section>
+      <PageHero
+        eyebrow="Cleaning Tips • Oct 12, 2023"
+        title={title}
+        image={image}
+        imageAlt={title}
+        align="left"
+      >
+        <div className="flex items-center space-x-3 text-sm text-white/90">
+          <Image
+            src="/images/blog-author.png"
+            alt="Author"
+            width={40}
+            height={40}
+            className="rounded-full object-cover border-2 border-white/30"
+          />
+          <span>By Ama Mensah</span>
+        </div>
+      </PageHero>
+      <PageBreadcrumb
+        items={[
+          { label: "Home", href: "/" },
+          { label: "Blog", href: "/blog" },
+          { label: title },
+        ]}
+      />
 
       <Section className="bg-background pt-12">
         <Container className="max-w-3xl">
-          <div className="relative h-[400px] w-full rounded-3xl overflow-hidden mb-12 shadow-xl">
-            <Image
-              src={image}
-              alt={title}
-              fill
-              className="object-cover"
-            />
-          </div>
-          
           <div className="prose prose-lg dark:prose-invert max-w-none">
             <p>
               Maintaining a clean home between professional cleanings can feel like a daunting task, but it doesn't have to be. 
@@ -73,7 +79,7 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ slu
             </blockquote>
             <p>
               While these tips will certainly help, there's no replacement for a thorough deep clean. 
-              If you're feeling overwhelmed, let our team at PremiumClean handle the heavy lifting.
+              If you're feeling overwhelmed, let our team at Cleanova HQ handle the heavy lifting.
             </p>
           </div>
 
