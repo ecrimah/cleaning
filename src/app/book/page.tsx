@@ -1,0 +1,107 @@
+"use client";
+
+import { Container } from "@/components/layout/Container";
+import { Section } from "@/components/layout/Section";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
+
+export default function BookPage() {
+  return (
+    <>
+      <Section className="bg-primary/5 py-24 md:py-32">
+        <Container className="text-center max-w-3xl">
+          <h1 className="text-5xl md:text-6xl font-heading font-bold text-foreground mb-6">Book Your Cleaning</h1>
+          <p className="text-lg text-muted-foreground leading-relaxed">
+            Ready for a spotless space? Fill out the form below to request a service or get a free estimate. 
+            We'll be in touch shortly to confirm your booking.
+          </p>
+        </Container>
+      </Section>
+
+      <Section className="bg-background">
+        <Container className="max-w-3xl mx-auto">
+          <div className="bg-muted/30 p-8 md:p-12 rounded-3xl shadow-lg border">
+            <form className="space-y-8" onSubmit={(e) => e.preventDefault()}>
+              
+              {/* Service Details */}
+              <div className="space-y-4">
+                <h2 className="text-2xl font-heading font-bold border-b pb-2">1. Service Details</h2>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  <div className="space-y-2">
+                    <label htmlFor="serviceType" className="text-sm font-medium">Service Type</label>
+                    <select id="serviceType" className="flex h-12 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50">
+                      <option>Regular Cleaning</option>
+                      <option>Deep Cleaning</option>
+                      <option>Move In/Out</option>
+                      <option>Office Cleaning</option>
+                    </select>
+                  </div>
+                  <div className="space-y-2">
+                    <label htmlFor="frequency" className="text-sm font-medium">Frequency</label>
+                    <select id="frequency" className="flex h-12 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50">
+                      <option>One Time</option>
+                      <option>Weekly (15% off)</option>
+                      <option>Bi-Weekly (10% off)</option>
+                      <option>Monthly (5% off)</option>
+                    </select>
+                  </div>
+                </div>
+                <div className="grid grid-cols-2 gap-4">
+                  <div className="space-y-2">
+                    <label htmlFor="bedrooms" className="text-sm font-medium">Bedrooms</label>
+                    <Input id="bedrooms" type="number" min="1" placeholder="1" className="bg-background h-12" />
+                  </div>
+                  <div className="space-y-2">
+                    <label htmlFor="bathrooms" className="text-sm font-medium">Bathrooms</label>
+                    <Input id="bathrooms" type="number" min="1" placeholder="1" className="bg-background h-12" />
+                  </div>
+                </div>
+              </div>
+
+              {/* Personal Details */}
+              <div className="space-y-4">
+                <h2 className="text-2xl font-heading font-bold border-b pb-2">2. Personal Details</h2>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  <div className="space-y-2">
+                    <label htmlFor="firstName" className="text-sm font-medium">First Name</label>
+                    <Input id="firstName" placeholder="John" className="bg-background h-12" />
+                  </div>
+                  <div className="space-y-2">
+                    <label htmlFor="lastName" className="text-sm font-medium">Last Name</label>
+                    <Input id="lastName" placeholder="Doe" className="bg-background h-12" />
+                  </div>
+                </div>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  <div className="space-y-2">
+                    <label htmlFor="email" className="text-sm font-medium">Email</label>
+                    <Input id="email" type="email" placeholder="john@example.com" className="bg-background h-12" />
+                  </div>
+                  <div className="space-y-2">
+                    <label htmlFor="phone" className="text-sm font-medium">Phone</label>
+                    <Input id="phone" type="tel" placeholder="(555) 123-4567" className="bg-background h-12" />
+                  </div>
+                </div>
+                <div className="space-y-2">
+                  <label htmlFor="address" className="text-sm font-medium">Street Address</label>
+                  <Input id="address" placeholder="123 Main St" className="bg-background h-12" />
+                </div>
+                <div className="space-y-2">
+                  <label htmlFor="notes" className="text-sm font-medium">Special Instructions / Notes</label>
+                  <Textarea id="notes" placeholder="Any specific areas you want us to focus on?" className="bg-background min-h-[100px]" />
+                </div>
+              </div>
+
+              <Button size="lg" className="w-full h-14 rounded-xl text-lg font-semibold">
+                Request Booking
+              </Button>
+              <p className="text-sm text-muted-foreground text-center mt-4">
+                * You won't be charged until the service is complete.
+              </p>
+            </form>
+          </div>
+        </Container>
+      </Section>
+    </>
+  );
+}
