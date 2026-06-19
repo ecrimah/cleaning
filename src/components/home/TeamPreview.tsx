@@ -7,22 +7,22 @@ import { motion } from "framer-motion";
 
 const team = [
   {
-    name: "Ama Mensah",
+    name: "Dziedzom",
     role: "Cleaning Specialist",
     image: "/images/team-1.png",
   },
   {
-    name: "Kofi Asante",
+    name: "Geoffery",
     role: "Operations Manager",
     image: "/images/team-2.png",
   },
   {
-    name: "Abena Osei",
+    name: "Miss Ankrah",
     role: "Quality Inspector",
     image: "/images/team-3.png",
   },
   {
-    name: "Kwame Addo",
+    name: "Phil",
     role: "Cleaning Specialist",
     image: "/images/team-4.png",
   },
@@ -54,7 +54,7 @@ export function TeamPreview() {
                   src={member.image}
                   alt={member.name}
                   fill
-                  className="object-cover transition-transform duration-500 group-hover:scale-110"
+                  className="object-cover object-top transition-transform duration-500 group-hover:scale-110"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
               </div>

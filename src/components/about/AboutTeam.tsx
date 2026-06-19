@@ -8,25 +8,25 @@ import { SectionHeading } from "@/components/shared/SectionHeading";
 
 const team = [
   {
-    name: "Ama Mensah",
+    name: "Dziedzom",
     role: "Cleaning Specialist",
     bio: "Leads residential deep cleans with meticulous attention to kitchens and bathrooms.",
     image: "/images/team-1.png",
   },
   {
-    name: "Kofi Asante",
+    name: "Geoffery",
     role: "Operations Manager",
     bio: "Coordinates crews, schedules, and quality across commercial and industrial sites.",
     image: "/images/team-2.png",
   },
   {
-    name: "Abena Osei",
+    name: "Miss Ankrah",
     role: "Quality Inspector",
     bio: "Ensures every job meets the Cleanova checklist before we call it complete.",
     image: "/images/team-3.png",
   },
   {
-    name: "Kwame Addo",
+    name: "Phil",
     role: "Cleaning Specialist",
     bio: "Specialises in move-in/move-out and post-construction cleaning projects.",
     image: "/images/team-4.png",
@@ -60,7 +60,7 @@ export function AboutTeam() {
                   src={member.image}
                   alt={member.name}
                   fill
-                  className="object-cover transition-transform duration-500 group-hover:scale-105"
+                  className="object-cover object-top transition-transform duration-500 group-hover:scale-105"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-foreground/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
               </div>
