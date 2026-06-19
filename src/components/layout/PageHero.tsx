@@ -34,7 +34,7 @@ export function PageHero({
   return (
     <section
       className={cn(
-        "relative min-h-[320px] md:min-h-[440px] flex items-center overflow-hidden",
+        "relative min-h-[200px] md:min-h-[260px] flex items-center overflow-hidden",
         className
       )}
     >
@@ -49,10 +49,10 @@ export function PageHero({
       <div className="absolute inset-0 bg-gradient-to-r from-foreground/92 via-foreground/78 to-foreground/55" />
       <div className="absolute inset-0 bg-primary/20 mix-blend-multiply" />
 
-      <Container className="relative z-10 py-20 md:py-28">
+      <Container className="relative z-10 py-8 md:py-12">
         <div
           className={cn(
-            "max-w-3xl space-y-6",
+            "max-w-2xl space-y-4",
             centered && "mx-auto text-center",
             !centered && "lg:max-w-2xl"
           )}
@@ -60,21 +60,21 @@ export function PageHero({
           {eyebrow && (
             <span
               className={cn(
-                "animate-fade-up inline-block font-semibold text-white/95 bg-primary/90 px-4 py-2 rounded-full text-sm",
+                "animate-fade-up inline-block font-semibold text-white/95 bg-primary/90 px-3 py-1.5 rounded-full text-xs",
                 centered && "mx-auto"
               )}
             >
               {eyebrow}
             </span>
           )}
-          <h1 className="animate-fade-up-delay-1 text-4xl md:text-5xl lg:text-6xl font-heading font-bold text-white leading-tight">
+          <h1 className="animate-fade-up-delay-1 text-xl md:text-2xl lg:text-3xl font-heading font-bold text-white leading-tight">
             {title}
           </h1>
           {description && (
             <>
               <p
                 className={cn(
-                  "animate-fade-up-delay-2 md:hidden text-base text-white/85 leading-relaxed",
+                  "animate-fade-up-delay-2 md:hidden text-sm text-white/85 leading-relaxed",
                   centered && "mx-auto"
                 )}
               >
@@ -82,7 +82,7 @@ export function PageHero({
               </p>
               <p
                 className={cn(
-                  "animate-fade-up-delay-2 hidden md:block text-lg md:text-xl text-white/85 leading-relaxed",
+                  "animate-fade-up-delay-2 hidden md:block text-sm md:text-base text-white/85 leading-relaxed",
                   centered && "mx-auto"
                 )}
               >

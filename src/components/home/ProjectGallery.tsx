@@ -32,9 +32,9 @@ export function ProjectGallery() {
   return (
     <Section className="bg-background pt-0">
       <Container>
-        <div className="text-center space-y-4 mb-16">
+        <div className="text-center space-y-3 mb-10">
           <h2 className="text-primary font-bold tracking-wide uppercase text-sm">Portfolio</h2>
-          <h3 className="text-4xl md:text-5xl font-heading font-bold text-foreground">
+          <h3 className="text-2xl md:text-3xl font-heading font-bold text-foreground">
             Our Latest Works
           </h3>
         </div>
@@ -47,7 +47,7 @@ export function ProjectGallery() {
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="group relative h-[300px] rounded-2xl overflow-hidden cursor-pointer"
+              className="group relative h-[220px] rounded-xl overflow-hidden cursor-pointer"
             >
               <Image
                 src={project.image}
@@ -58,7 +58,7 @@ export function ProjectGallery() {
               <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-80 group-hover:opacity-90 transition-opacity duration-300" />
               <div className="absolute inset-0 p-6 flex flex-col justify-end translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
                 <span className="text-primary font-medium text-sm mb-2">{project.category}</span>
-                <h4 className="text-white text-xl font-bold font-heading leading-tight">{project.title}</h4>
+                <h4 className="text-white text-base font-bold font-heading leading-tight">{project.title}</h4>
               </div>
             </motion.div>
           ))}

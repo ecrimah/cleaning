@@ -31,39 +31,39 @@ const benefits = [
 export function WhyChooseUs() {
   return (
     <Section className="bg-primary/5">
-      <Container className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+      <Container className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
         <motion.div
           initial={{ opacity: 0, x: -20 }}
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
-          className="space-y-8"
+          className="space-y-6"
         >
-          <div className="space-y-4">
-            <h2 className="text-primary font-bold tracking-wide uppercase text-sm">Why Choose Us</h2>
-            <h3 className="text-4xl md:text-5xl font-heading font-bold text-foreground leading-tight">
+          <div className="space-y-3">
+            <h2 className="text-primary font-bold tracking-wide uppercase text-xs">Why Choose Us</h2>
+            <h3 className="text-2xl md:text-3xl font-heading font-bold text-foreground leading-tight">
               We Have Our Own Style & Standards
             </h3>
-            <p className="text-muted-foreground text-lg leading-relaxed">
+            <p className="text-muted-foreground leading-relaxed">
               We don't just clean; we care for your space as if it were our own. Our commitment to excellence sets us apart.
             </p>
           </div>
 
-          <div className="space-y-6">
+          <div className="space-y-4">
             {benefits.map((benefit, i) => (
-              <div key={i} className="flex space-x-4">
-                <div className="mt-1">
-                  <CheckCircle2 className="h-6 w-6 text-primary" />
+              <div key={i} className="flex space-x-3">
+                <div className="mt-0.5">
+                  <CheckCircle2 className="h-5 w-5 text-primary" />
                 </div>
                 <div>
-                  <h4 className="font-bold text-lg">{benefit.title}</h4>
+                  <h4 className="font-bold">{benefit.title}</h4>
                   <p className="text-muted-foreground">{benefit.description}</p>
                 </div>
               </div>
             ))}
           </div>
 
-          <Link href="/contact" className={cn(buttonVariants({ size: "lg" }), "rounded-full px-8")}>
+          <Link href="/contact" className={cn(buttonVariants({ size: "lg" }), "rounded-full px-6")}>
             Contact Us Today
           </Link>
         </motion.div>
@@ -73,7 +73,7 @@ export function WhyChooseUs() {
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
-          className="relative h-[600px] w-full rounded-3xl overflow-hidden shadow-2xl"
+          className="relative h-[400px] w-full rounded-xl overflow-hidden shadow-lg"
         >
           <Image
             src="/images/why-choose-us.png"

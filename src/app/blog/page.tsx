@@ -51,15 +51,15 @@ export default function BlogPage() {
       <PageBreadcrumb items={[{ label: "Home", href: "/" }, { label: "Blog" }]} />
 
       <Section className="bg-background">
-        <Container className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <Container className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {posts.map((post) => (
-            <Card key={post.slug} className="overflow-hidden border-0 shadow-lg hover:shadow-xl transition-shadow bg-muted/30 flex flex-col">
-              <div className="relative h-48 w-full">
+            <Card key={post.slug} className="overflow-hidden border-0 shadow-md hover:shadow-lg transition-shadow bg-muted/30 flex flex-col">
+              <div className="relative h-40 w-full">
                 <Image src={post.image} alt={post.title} fill className="object-cover" />
               </div>
               <CardHeader>
                 <div className="text-xs text-primary font-semibold mb-2">{post.date}</div>
-                <CardTitle className="font-heading text-xl leading-tight hover:text-primary transition-colors">
+                <CardTitle className="font-heading text-base leading-tight hover:text-primary transition-colors">
                   <Link href={`/blog/${post.slug}`}>{post.title}</Link>
                 </CardTitle>
               </CardHeader>

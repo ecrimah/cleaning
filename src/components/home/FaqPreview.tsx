@@ -11,9 +11,9 @@ export function FaqPreview() {
   return (
     <Section className="bg-background">
       <Container className="max-w-3xl">
-        <div className="text-center space-y-4 mb-12">
-          <h2 className="text-primary font-bold tracking-wide uppercase text-sm">FAQ</h2>
-          <h3 className="text-4xl font-heading font-bold text-foreground">
+        <div className="text-center space-y-3 mb-8">
+          <h2 className="text-primary font-bold tracking-wide uppercase text-xs">FAQ</h2>
+          <h3 className="text-2xl font-heading font-bold text-foreground">
             Frequently Asked Questions
           </h3>
         </div>
@@ -26,11 +26,11 @@ export function FaqPreview() {
         >
           <Accordion className="w-full space-y-4">
             {faqs.map((faq, index) => (
-              <AccordionItem key={index} value={`item-${index}`} className="border bg-muted/30 px-6 rounded-xl overflow-hidden">
-                <AccordionTrigger className="text-left font-semibold text-lg hover:no-underline">
+              <AccordionItem key={index} value={`item-${index}`} className="border bg-muted/30 px-4 rounded-lg overflow-hidden">
+                <AccordionTrigger className="text-left font-semibold hover:no-underline">
                   {faq.question}
                 </AccordionTrigger>
-                <AccordionContent className="text-muted-foreground text-base pb-4">
+                <AccordionContent className="text-muted-foreground text-sm pb-3">
                   {faq.answer}
                 </AccordionContent>
               </AccordionItem>

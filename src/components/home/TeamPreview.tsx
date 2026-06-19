@@ -32,14 +32,14 @@ export function TeamPreview() {
   return (
     <Section className="bg-muted/30">
       <Container>
-        <div className="text-center space-y-4 mb-16">
-          <h2 className="text-primary font-bold tracking-wide uppercase text-sm">Our Experts</h2>
-          <h3 className="text-4xl md:text-5xl font-heading font-bold text-foreground">
+        <div className="text-center space-y-3 mb-10">
+          <h2 className="text-primary font-bold tracking-wide uppercase text-xs">Our Experts</h2>
+          <h3 className="text-2xl md:text-3xl font-heading font-bold text-foreground">
             Experienced Team
           </h3>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {team.map((member, index) => (
             <motion.div
               key={member.name}
@@ -49,7 +49,7 @@ export function TeamPreview() {
               transition={{ duration: 0.5, delay: index * 0.1 }}
               className="group"
             >
-              <div className="relative h-[300px] w-full rounded-2xl overflow-hidden mb-4 shadow-lg">
+              <div className="relative h-[220px] w-full rounded-xl overflow-hidden mb-3 shadow-md">
                 <Image
                   src={member.image}
                   alt={member.name}
@@ -59,7 +59,7 @@ export function TeamPreview() {
                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
               </div>
               <div className="text-center">
-                <h4 className="text-xl font-bold font-heading">{member.name}</h4>
+                <h4 className="text-base font-bold font-heading">{member.name}</h4>
                 <p className="text-muted-foreground">{member.role}</p>
               </div>
             </motion.div>

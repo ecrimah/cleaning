@@ -35,17 +35,17 @@ export function Testimonials() {
   return (
     <Section className="bg-background">
       <Container>
-        <div className="text-center space-y-4 mb-16 max-w-2xl mx-auto">
-          <h2 className="text-primary font-bold tracking-wide uppercase text-sm">Testimonials</h2>
-          <h3 className="text-4xl md:text-5xl font-heading font-bold text-foreground">
+        <div className="text-center space-y-3 mb-10 max-w-2xl mx-auto">
+          <h2 className="text-primary font-bold tracking-wide uppercase text-xs">Testimonials</h2>
+          <h3 className="text-2xl md:text-3xl font-heading font-bold text-foreground">
             What Our Clients Say
           </h3>
-          <p className="text-muted-foreground text-lg">
+          <p className="text-muted-foreground">
             Don't just take our word for it. Read what our satisfied clients have to say about our services.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {testimonials.map((testimonial, index) => (
             <motion.div
               key={index}
@@ -55,13 +55,13 @@ export function Testimonials() {
               transition={{ duration: 0.5, delay: index * 0.2 }}
             >
               <Card className="h-full bg-muted/30 border-0 shadow-lg">
-                <CardContent className="pt-8 px-6 pb-6 space-y-6">
+                <CardContent className="pt-6 px-5 pb-5 space-y-4">
                   <div className="flex text-amber-400">
                     {[...Array(testimonial.rating)].map((_, i) => (
-                      <Star key={i} className="h-5 w-5 fill-current" />
+                      <Star key={i} className="h-4 w-4 fill-current" />
                     ))}
                   </div>
-                  <p className="text-muted-foreground text-lg italic leading-relaxed">
+                  <p className="text-muted-foreground italic leading-relaxed">
                     "{testimonial.text}"
                   </p>
                   <div className="flex items-center space-x-4 pt-4 border-t">

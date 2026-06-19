@@ -1,9 +1,11 @@
 import type { Metadata } from "next";
-import { Container } from "@/components/layout/Container";
-import { Section } from "@/components/layout/Section";
-import { ServicesGrid } from "@/components/home/ServicesGrid";
-import { QuickEstimate } from "@/components/home/QuickEstimate";
 import { PageHero, PageBreadcrumb } from "@/components/layout/PageHero";
+import { QuickEstimate } from "@/components/home/QuickEstimate";
+import { ServicesHighlights } from "@/components/services/ServicesHighlights";
+import { ServicesCatalog } from "@/components/services/ServicesCatalog";
+import { ServicesAudiences } from "@/components/services/ServicesAudiences";
+import { ServicesProcess } from "@/components/services/ServicesProcess";
+import { PageCta } from "@/components/shared/PageCta";
 import { JsonLd, breadcrumbSchema } from "@/components/seo/JsonLd";
 import { siteConfig, SERVICES } from "@/lib/site";
 
@@ -48,20 +50,19 @@ export default function ServicesPage() {
       />
       <PageBreadcrumb items={[{ label: "Home", href: "/" }, { label: "Services" }]} />
 
+      <ServicesHighlights />
       <QuickEstimate />
-
-      <div className="pt-24 pb-12">
-        <ServicesGrid />
-      </div>
-
-      <Section className="bg-background">
-        <Container className="max-w-4xl text-center space-y-8">
-          <h2 className="text-3xl font-heading font-bold">Need a Custom Cleaning Plan?</h2>
-          <p className="text-lg text-muted-foreground">
-            If you have unique requirements or a large commercial or industrial space, we can build a customized cleaning and maintenance plan tailored to your schedule and budget.
-          </p>
-        </Container>
-      </Section>
+      <ServicesCatalog />
+      <ServicesAudiences />
+      <ServicesProcess />
+      <PageCta
+        title="Need a custom cleaning plan?"
+        description="Every space is different. Tell us about your requirements and our team will build a tailored cleaning and maintenance plan — with a quote from our admin team."
+        primaryLabel="Request a Quote"
+        primaryHref="/book"
+        secondaryLabel="Contact Us"
+        secondaryHref="/contact"
+      />
     </>
   );
 }

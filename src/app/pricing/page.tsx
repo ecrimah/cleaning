@@ -1,3 +1,11 @@
+import { notFound } from "next/navigation";
+
+// Pricing page disabled — quotes are provided by admin on request
+export default function PricingPage() {
+  notFound();
+}
+
+/*
 "use client";
 
 import { Container } from "@/components/layout/Container";
@@ -67,22 +75,21 @@ export default function PricingPage() {
       <QuickEstimate />
 
       <Section className="bg-muted/30 relative overflow-hidden">
-        {/* Decorative background blobs */}
         <div className="absolute top-0 left-1/4 w-96 h-96 bg-primary/5 rounded-full blur-3xl -z-10" />
         <div className="absolute bottom-0 right-1/4 w-[500px] h-[500px] bg-blue-400/5 rounded-full blur-3xl -z-10" />
 
         <Container>
-          <div className="text-center max-w-2xl mx-auto mb-16 space-y-4">
-            <h2 className="text-primary font-bold tracking-wider uppercase text-sm">Our Plans</h2>
-            <h3 className="text-4xl md:text-5xl font-heading font-bold text-foreground">
+          <div className="text-center max-w-2xl mx-auto mb-10 space-y-3">
+            <h2 className="text-primary font-bold tracking-wider uppercase text-xs">Our Plans</h2>
+            <h3 className="text-2xl md:text-3xl font-heading font-bold text-foreground">
               Choose Your Level of Clean
             </h3>
-            <p className="text-muted-foreground text-lg">
+            <p className="text-muted-foreground">
               Whether you need a quick refresh or a meticulous deep clean, we have a package perfectly tailored to your needs.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-10 max-w-6xl mx-auto items-center">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8 max-w-5xl mx-auto items-center">
             {packages.map((pkg, index) => (
               <motion.div
                 key={pkg.name}
@@ -91,9 +98,9 @@ export default function PricingPage() {
                 viewport={{ once: true, margin: "-100px" }}
                 transition={{ duration: 0.6, delay: index * 0.15 }}
                 className={cn(
-                  "relative rounded-[2rem] p-8 lg:p-10 flex flex-col h-full transition-all duration-500 hover:-translate-y-2",
-                  pkg.popular 
-                    ? "bg-gradient-to-br from-primary via-[#0ea5e9] to-[#0284c7] text-white shadow-2xl shadow-primary/20 md:scale-105 z-10 border-0" 
+                  "relative rounded-xl p-6 lg:p-8 flex flex-col h-full transition-all duration-500 hover:-translate-y-1",
+                  pkg.popular
+                    ? "bg-gradient-to-br from-primary via-[#0ea5e9] to-[#0284c7] text-white shadow-2xl shadow-primary/20 md:scale-105 z-10 border-0"
                     : "bg-background text-card-foreground border border-border shadow-lg hover:shadow-xl"
                 )}
               >
@@ -105,15 +112,15 @@ export default function PricingPage() {
                   </div>
                 )}
 
-                <div className="mb-8">
-                  <h3 className="text-2xl lg:text-3xl font-heading font-bold mb-3">{pkg.name}</h3>
+                <div className="mb-6">
+                  <h3 className="text-xl lg:text-2xl font-heading font-bold mb-2">{pkg.name}</h3>
                   <p className={cn("text-sm leading-relaxed", pkg.popular ? "text-blue-50" : "text-muted-foreground")}>
                     {pkg.description}
                   </p>
                 </div>
 
-                <div className="mb-8 flex items-baseline">
-                  <span className="text-5xl lg:text-6xl font-heading font-extrabold tracking-tight">
+                <div className="mb-6 flex items-baseline">
+                  <span className="text-3xl lg:text-4xl font-heading font-extrabold tracking-tight">
                     {pkg.price.replace("From ", "")}
                   </span>
                   <span className={cn("ml-2 text-sm font-medium", pkg.popular ? "text-blue-100" : "text-muted-foreground")}>
@@ -121,11 +128,11 @@ export default function PricingPage() {
                   </span>
                 </div>
 
-                <div className="flex-1 space-y-5 mb-10">
+                <div className="flex-1 space-y-3 mb-8">
                   {pkg.features.map((feature, i) => (
                     <div key={i} className="flex items-start gap-4">
                       <div className={cn(
-                        "mt-0.5 rounded-full p-1 shrink-0", 
+                        "mt-0.5 rounded-full p-1 shrink-0",
                         pkg.popular ? "bg-white/20 text-white" : "bg-primary/10 text-primary"
                       )}>
                         <Check className="w-3.5 h-3.5 stroke-[3]" />
@@ -140,9 +147,9 @@ export default function PricingPage() {
                 <Link
                   href="/book"
                   className={cn(
-                    "w-full py-4 rounded-xl font-bold transition-all duration-300 text-center text-sm shadow-md hover:shadow-xl",
-                    pkg.popular 
-                      ? "bg-white text-primary hover:bg-gray-50 hover:scale-[1.02]" 
+                    "w-full py-3 rounded-lg font-bold transition-all duration-300 text-center text-sm shadow-md hover:shadow-lg",
+                    pkg.popular
+                      ? "bg-white text-primary hover:bg-gray-50 hover:scale-[1.02]"
                       : "bg-primary/5 text-primary hover:bg-primary hover:text-white"
                   )}
                 >
@@ -152,10 +159,10 @@ export default function PricingPage() {
             ))}
           </div>
 
-          <div className="mt-16 text-center">
-            <div className="inline-block bg-background border rounded-2xl px-6 py-4 shadow-sm">
+          <div className="mt-10 text-center">
+            <div className="inline-block bg-background border rounded-xl px-4 py-3 shadow-sm">
               <p className="text-muted-foreground text-sm flex items-center justify-center gap-2">
-                <span className="text-primary font-bold">*</span> 
+                <span className="text-primary font-bold">*</span>
                 Prices vary based on the size of your home and specific requirements. Contact us for an exact quote.
               </p>
             </div>
@@ -165,3 +172,4 @@ export default function PricingPage() {
     </>
   );
 }
+*/

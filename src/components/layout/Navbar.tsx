@@ -47,7 +47,7 @@ export function Navbar() {
       <div
         className={cn(
           "bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 transition-all duration-300 border-b",
-          isScrolled ? "py-3 shadow-sm" : "py-5"
+          isScrolled ? "py-2 shadow-sm" : "py-3"
         )}
       >
         <Container className="flex justify-between items-center">
@@ -56,18 +56,18 @@ export function Navbar() {
             <Image
               src={siteConfig.logo}
               alt={`${siteConfig.name} logo`}
-              width={48}
-              height={48}
-              className="h-11 w-11 object-contain"
+              width={40}
+              height={40}
+              className="h-9 w-9 object-contain"
               priority
             />
-            <span className="font-heading font-bold text-xl tracking-tight hidden sm:inline-block text-foreground">
+            <span className="font-heading font-bold text-lg tracking-tight hidden sm:inline-block text-foreground">
               Cleanova<span className="text-primary"> HQ</span>
             </span>
           </Link>
 
           {/* Desktop Nav */}
-          <nav className="hidden lg:flex items-center space-x-8">
+          <nav className="hidden lg:flex items-center space-x-6">
             {NAV_LINKS.map((link) => (
               <Link
                 key={link.name}
@@ -115,7 +115,7 @@ export function Navbar() {
                       <Link
                         key={link.name}
                         href={link.href}
-                        className="group flex items-center justify-between text-2xl font-heading font-bold text-foreground hover:text-primary hover:bg-primary/5 rounded-2xl p-4 transition-all duration-300"
+                        className="group flex items-center justify-between text-lg font-heading font-bold text-foreground hover:text-primary hover:bg-primary/5 rounded-xl p-3 transition-all duration-300"
                       >
                         {link.name}
                         <div className="w-8 h-8 rounded-full bg-muted group-hover:bg-primary/10 flex items-center justify-center text-muted-foreground group-hover:text-primary transition-colors">
@@ -127,7 +127,7 @@ export function Navbar() {
 
                   <div className="mt-12 space-y-4">
                     <div className="text-[10px] font-extrabold text-muted-foreground uppercase tracking-widest mb-3 ml-2">Contact Support</div>
-                    <a href={`tel:${siteConfig.phonePrimaryHref}`} className="flex items-center p-4 rounded-2xl bg-muted/40 hover:bg-muted/60 transition-colors border border-border/50">
+                    <a href={`tel:${siteConfig.phonePrimaryHref}`} className="flex items-center p-3 rounded-xl bg-muted/40 hover:bg-muted/60 transition-colors border border-border/50">
                       <div className="bg-background rounded-full p-2.5 mr-4 shadow-sm text-primary border border-border/50">
                         <Phone className="w-5 h-5" />
                       </div>
@@ -136,7 +136,7 @@ export function Navbar() {
                         <div className="font-bold text-foreground">{siteConfig.phonePrimaryDisplay}</div>
                       </div>
                     </a>
-                    <a href={`mailto:${siteConfig.email}`} className="flex items-center p-4 rounded-2xl bg-muted/40 hover:bg-muted/60 transition-colors border border-border/50">
+                    <a href={`mailto:${siteConfig.email}`} className="flex items-center p-3 rounded-xl bg-muted/40 hover:bg-muted/60 transition-colors border border-border/50">
                       <div className="bg-background rounded-full p-2.5 mr-4 shadow-sm text-primary border border-border/50">
                         <Mail className="w-5 h-5" />
                       </div>
@@ -150,7 +150,7 @@ export function Navbar() {
 
                 {/* Fixed Footer */}
                 <div className="p-6 bg-muted/30 border-t border-border/50 backdrop-blur-md">
-                  <Link href="/book" className={cn(buttonVariants({ size: "lg" }), "w-full rounded-2xl h-14 text-lg shadow-lg shadow-primary/20 bg-gradient-to-r from-primary to-blue-600 font-bold hover:shadow-xl transition-all hover:-translate-y-0.5")}>
+                  <Link href="/book" className={cn(buttonVariants({ size: "lg" }), "w-full rounded-xl shadow-md shadow-primary/20 bg-gradient-to-r from-primary to-blue-600 font-bold hover:shadow-lg transition-all hover:-translate-y-0.5")}>
                     Get a Free Estimate
                   </Link>
                 </div>

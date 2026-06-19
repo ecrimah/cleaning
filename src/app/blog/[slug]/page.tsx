@@ -56,7 +56,7 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ slu
 
       <Section className="bg-background pt-12">
         <Container className="max-w-3xl">
-          <div className="prose prose-lg dark:prose-invert max-w-none">
+          <div className="prose prose-sm dark:prose-invert max-w-none">
             <p>
               Maintaining a clean home between professional cleanings can feel like a daunting task, but it doesn't have to be. 
               With a few simple daily habits, you can keep your space looking fresh and tidy, extending the lifespan of that "just cleaned" feeling.
@@ -83,7 +83,7 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ slu
             </p>
           </div>
 
-          <div className="mt-16 pt-8 border-t flex justify-between items-center">
+          <div className="mt-10 pt-6 border-t flex justify-between items-center">
             <Link href="/blog" className={cn(buttonVariants({ variant: "outline" }), "rounded-full")}>
               ← Back to Blog
             </Link>

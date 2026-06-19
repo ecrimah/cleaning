@@ -29,11 +29,11 @@ const SOCIALS: { name: string; href: string; path: string }[] = [
 
 export function Footer() {
   return (
-    <footer className="bg-foreground text-background pt-16 pb-8">
+    <footer className="bg-foreground text-background pt-12 pb-6">
       <Container>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
           {/* Brand Col */}
-          <div className="space-y-6">
+          <div className="space-y-4">
             <Link href="/" className="inline-flex items-center space-x-2.5" aria-label={`${siteConfig.name} home`}>
               <Image
                 src={siteConfig.logo}
@@ -42,7 +42,7 @@ export function Footer() {
                 height={44}
                 className="h-10 w-10 object-contain"
               />
-              <span className="font-heading font-bold text-2xl tracking-tight">
+              <span className="font-heading font-bold text-lg tracking-tight">
                 Cleanova<span className="text-primary"> HQ</span>
               </span>
             </Link>
@@ -68,8 +68,8 @@ export function Footer() {
           </div>
 
           {/* Quick Links Col */}
-          <div className="space-y-6">
-            <h3 className="font-heading font-bold text-lg">Quick Links</h3>
+          <div className="space-y-4">
+            <h3 className="font-heading font-bold text-sm">Quick Links</h3>
             <ul className="space-y-3">
               {NAV_LINKS.map((item) => (
                 <li key={item.name}>
@@ -83,8 +83,8 @@ export function Footer() {
           </div>
 
           {/* Services Col */}
-          <div className="space-y-6">
-            <h3 className="font-heading font-bold text-lg">Our Services</h3>
+          <div className="space-y-4">
+            <h3 className="font-heading font-bold text-sm">Our Services</h3>
             <ul className="space-y-3">
               {SERVICES.slice(0, 6).map((service) => (
                 <li key={service.slug}>
@@ -98,9 +98,9 @@ export function Footer() {
           </div>
 
           {/* Contact Col */}
-          <div className="space-y-6">
-            <h3 className="font-heading font-bold text-lg">Contact Info</h3>
-            <ul className="space-y-4">
+          <div className="space-y-4">
+            <h3 className="font-heading font-bold text-sm">Contact Info</h3>
+            <ul className="space-y-3">
               <li className="flex items-start">
                 <MapPin className="h-5 w-5 text-primary mr-3 mt-0.5 shrink-0" />
                 <span className="text-muted-foreground text-sm">{siteConfig.address.full}</span>
@@ -121,7 +121,7 @@ export function Footer() {
         </div>
 
         {/* Bottom Bar */}
-        <div className="pt-8 border-t border-background/10 flex flex-col md:flex-row justify-between items-center gap-4">
+        <div className="pt-6 border-t border-background/10 flex flex-col md:flex-row justify-between items-center gap-3">
           <p className="text-muted-foreground text-sm">
             © {new Date().getFullYear()} {siteConfig.name}. All rights reserved.
           </p>

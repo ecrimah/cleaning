@@ -68,7 +68,7 @@ export const NAV_LINKS = [
   { name: "Home", href: "/" },
   { name: "About", href: "/about" },
   { name: "Services", href: "/services" },
-  { name: "Pricing", href: "/pricing" },
+  // { name: "Pricing", href: "/pricing" },
   // { name: "FAQ", href: "/faq" },
   { name: "Contact", href: "/contact" },
 ] as const;
@@ -153,6 +153,24 @@ export const SERVICE_IMAGES: Record<Service["slug"], string> = {
 export function getServiceImage(slug: string): string {
   return SERVICE_IMAGES[slug as Service["slug"]] ?? "/images/hero-cleaning.png";
 }
+
+/** Blog post slugs for sitemap and routing. */
+export const BLOG_POSTS = [
+  { slug: "10-tips-maintaining-clean-home" },
+  { slug: "eco-friendly-cleaning-benefits" },
+  { slug: "ultimate-spring-cleaning-checklist" },
+] as const;
+
+/** All indexable static routes for sitemap generation. */
+export const SITEMAP_STATIC_ROUTES = [
+  { path: "/", priority: 1, changeFrequency: "weekly" as const },
+  { path: "/services", priority: 0.9, changeFrequency: "weekly" as const },
+  { path: "/about", priority: 0.8, changeFrequency: "monthly" as const },
+  // { path: "/pricing", priority: 0.8, changeFrequency: "monthly" as const },
+  { path: "/contact", priority: 0.7, changeFrequency: "monthly" as const },
+  { path: "/book", priority: 0.7, changeFrequency: "monthly" as const },
+  { path: "/blog", priority: 0.6, changeFrequency: "weekly" as const },
+] as const;
 
 /** FAQs — power the UI accordions and FAQPage structured data. */
 export const FAQS = [

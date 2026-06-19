@@ -22,16 +22,16 @@ export default function BookPage() {
 
       <Section className="bg-background">
         <Container className="max-w-3xl mx-auto">
-          <div className="bg-muted/30 p-8 md:p-12 rounded-3xl shadow-lg border">
-            <form className="space-y-8" onSubmit={(e) => e.preventDefault()}>
+          <div className="bg-muted/30 p-6 md:p-8 rounded-xl shadow-md border">
+            <form className="space-y-6" onSubmit={(e) => e.preventDefault()}>
               
               {/* Service Details */}
-              <div className="space-y-4">
-                <h2 className="text-2xl font-heading font-bold border-b pb-2">1. Service Details</h2>
+              <div className="space-y-3">
+                <h2 className="text-lg font-heading font-bold border-b pb-2">1. Service Details</h2>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   <div className="space-y-2">
                     <label htmlFor="serviceType" className="text-sm font-medium">Service Type</label>
-                    <select id="serviceType" className="flex h-12 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50">
+                    <select id="serviceType" className="flex h-9 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50">
                       <option>Residential Cleaning</option>
                       <option>Commercial Cleaning</option>
                       <option>Industrial Cleaning</option>
@@ -44,7 +44,7 @@ export default function BookPage() {
                   </div>
                   <div className="space-y-2">
                     <label htmlFor="frequency" className="text-sm font-medium">Frequency</label>
-                    <select id="frequency" className="flex h-12 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50">
+                    <select id="frequency" className="flex h-9 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50">
                       <option>One Time</option>
                       <option>Weekly (15% off)</option>
                       <option>Bi-Weekly (10% off)</option>
@@ -55,41 +55,41 @@ export default function BookPage() {
                 <div className="grid grid-cols-2 gap-4">
                   <div className="space-y-2">
                     <label htmlFor="bedrooms" className="text-sm font-medium">Bedrooms</label>
-                    <Input id="bedrooms" type="number" min="1" placeholder="1" className="bg-background h-12" />
+                    <Input id="bedrooms" type="number" min="1" placeholder="1" className="bg-background h-9" />
                   </div>
                   <div className="space-y-2">
                     <label htmlFor="bathrooms" className="text-sm font-medium">Bathrooms</label>
-                    <Input id="bathrooms" type="number" min="1" placeholder="1" className="bg-background h-12" />
+                    <Input id="bathrooms" type="number" min="1" placeholder="1" className="bg-background h-9" />
                   </div>
                 </div>
               </div>
 
               {/* Personal Details */}
-              <div className="space-y-4">
-                <h2 className="text-2xl font-heading font-bold border-b pb-2">2. Personal Details</h2>
+              <div className="space-y-3">
+                <h2 className="text-lg font-heading font-bold border-b pb-2">2. Personal Details</h2>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div className="space-y-2">
                     <label htmlFor="firstName" className="text-sm font-medium">First Name</label>
-                    <Input id="firstName" placeholder="John" className="bg-background h-12" />
+                    <Input id="firstName" placeholder="John" className="bg-background h-9" />
                   </div>
                   <div className="space-y-2">
                     <label htmlFor="lastName" className="text-sm font-medium">Last Name</label>
-                    <Input id="lastName" placeholder="Doe" className="bg-background h-12" />
+                    <Input id="lastName" placeholder="Doe" className="bg-background h-9" />
                   </div>
                 </div>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div className="space-y-2">
                     <label htmlFor="email" className="text-sm font-medium">Email</label>
-                    <Input id="email" type="email" placeholder="john@example.com" className="bg-background h-12" />
+                    <Input id="email" type="email" placeholder="john@example.com" className="bg-background h-9" />
                   </div>
                   <div className="space-y-2">
                     <label htmlFor="phone" className="text-sm font-medium">Phone</label>
-                    <Input id="phone" type="tel" placeholder="059 276 1501" className="bg-background h-12" />
+                    <Input id="phone" type="tel" placeholder="059 276 1501" className="bg-background h-9" />
                   </div>
                 </div>
                 <div className="space-y-2">
                   <label htmlFor="address" className="text-sm font-medium">Street Address</label>
-                  <Input id="address" placeholder="123 Main St" className="bg-background h-12" />
+                  <Input id="address" placeholder="123 Main St" className="bg-background h-9" />
                 </div>
                 <div className="space-y-2">
                   <label htmlFor="notes" className="text-sm font-medium">Special Instructions / Notes</label>
@@ -97,7 +97,7 @@ export default function BookPage() {
                 </div>
               </div>
 
-              <Button size="lg" className="w-full h-14 rounded-xl text-lg font-semibold">
+              <Button size="lg" className="w-full rounded-lg font-semibold">
                 Request Booking
               </Button>
               <p className="text-sm text-muted-foreground text-center mt-4">

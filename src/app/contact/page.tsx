@@ -16,32 +16,32 @@ export default function ContactPage() {
       <PageHero
         eyebrow="Contact"
         title="Contact Us"
-        description="We'd love to hear from you. Whether you have a question about our services, pricing, or want to provide feedback, our team is ready to answer all your questions."
-        mobileDescription="Questions about our services or pricing? Our team is ready to help."
+        description="We'd love to hear from you. Whether you have a question about our services, booking, or want to provide feedback, our team is ready to answer all your questions."
+        mobileDescription="Questions about our services or booking? Our team is ready to help."
         image="/images/team-2.png"
         imageAlt="Contact Cleanova HQ cleaning team in Accra, Ghana"
       />
       <PageBreadcrumb items={[{ label: "Home", href: "/" }, { label: "Contact" }]} />
 
-      <Section className="bg-background relative overflow-hidden py-24">
+      <Section className="bg-background relative overflow-hidden">
         {/* Abstract Background Shapes */}
-        <div className="absolute top-0 right-0 -translate-y-12 translate-x-1/3 w-[600px] h-[600px] bg-primary/5 rounded-full blur-3xl pointer-events-none" />
-        <div className="absolute bottom-0 left-0 translate-y-1/3 -translate-x-1/3 w-[600px] h-[600px] bg-blue-400/5 rounded-full blur-3xl pointer-events-none" />
+        <div className="absolute top-0 right-0 -translate-y-12 translate-x-1/3 w-[400px] h-[400px] bg-primary/5 rounded-full blur-3xl pointer-events-none" />
+        <div className="absolute bottom-0 left-0 translate-y-1/3 -translate-x-1/3 w-[400px] h-[400px] bg-blue-400/5 rounded-full blur-3xl pointer-events-none" />
 
-        <Container className="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-start max-w-7xl mx-auto">
+        <Container className="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-6 items-start max-w-6xl mx-auto">
           
           {/* Left Column - Contact Info */}
-          <div className="lg:col-span-5 space-y-8 lg:pr-8">
+          <div className="lg:col-span-5 space-y-6 lg:pr-6">
             <motion.div 
               initial={{opacity: 0, x: -20}} 
               whileInView={{opacity: 1, x: 0}} 
               viewport={{once: true}} 
               transition={{duration: 0.5}}
             >
-              <h2 className="text-4xl md:text-5xl font-heading font-bold mb-4 leading-tight">
+              <h2 className="text-2xl md:text-3xl font-heading font-bold mb-3 leading-tight">
                 Let's start a conversation.
               </h2>
-              <p className="text-muted-foreground text-lg leading-relaxed">
+              <p className="text-muted-foreground leading-relaxed">
                 Have a question about our services or need a custom quote? Our team is ready to help you create a cleaner, healthier space.
               </p>
             </motion.div>
@@ -78,13 +78,13 @@ export default function ContactPage() {
                   whileInView={{opacity: 1, y: 0}} 
                   viewport={{once: true}} 
                   transition={{duration: 0.5, delay: 0.1 + i * 0.15}}
-                  className="group flex items-start gap-5 p-6 rounded-[2rem] bg-muted/30 border border-border/50 hover:bg-background hover:shadow-xl hover:border-primary/20 transition-all duration-300"
+                  className="group flex items-start gap-4 p-4 rounded-xl bg-muted/30 border border-border/50 hover:bg-background hover:shadow-lg hover:border-primary/20 transition-all duration-300"
                 >
-                  <div className="bg-primary/10 text-primary p-4 rounded-2xl group-hover:scale-110 group-hover:bg-primary group-hover:text-white transition-all duration-300 shadow-sm">
-                    <item.icon className="w-6 h-6" />
+                  <div className="bg-primary/10 text-primary p-3 rounded-xl group-hover:scale-110 group-hover:bg-primary group-hover:text-white transition-all duration-300 shadow-sm">
+                    <item.icon className="w-5 h-5" />
                   </div>
                   <div>
-                    <h3 className="font-bold text-lg mb-1.5">{item.title}</h3>
+                    <h3 className="font-bold mb-1">{item.title}</h3>
                     <div className="flex flex-col space-y-1 mb-2">
                       {item.link1 ? (
                         <a href={item.link1} className="text-foreground hover:text-primary font-medium transition-colors">{item.content1}</a>
@@ -114,33 +114,33 @@ export default function ContactPage() {
             transition={{duration: 0.6}}
             className="lg:col-span-7"
           >
-            <div className="bg-background rounded-[2.5rem] p-8 md:p-12 shadow-[0_20px_50px_rgba(0,0,0,0.05)] border border-border/50 relative overflow-hidden group">
+            <div className="bg-background rounded-xl p-6 md:p-8 shadow-lg border border-border/50 relative overflow-hidden group">
               {/* Decorative top border line */}
-              <div className="absolute top-0 left-0 w-full h-1.5 bg-gradient-to-r from-primary via-blue-400 to-primary opacity-80" />
+              <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-primary via-blue-400 to-primary opacity-80" />
               
-              <h3 className="text-2xl md:text-3xl font-bold font-heading mb-8">Send us a message</h3>
+              <h3 className="text-xl md:text-2xl font-bold font-heading mb-6">Send us a message</h3>
               
-              <form className="space-y-6" onSubmit={(e) => e.preventDefault()}>
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                  <div className="space-y-2.5">
+              <form className="space-y-4" onSubmit={(e) => e.preventDefault()}>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  <div className="space-y-2">
                     <label htmlFor="firstName" className="text-xs font-bold uppercase tracking-wider text-muted-foreground ml-1">First Name</label>
-                    <Input id="firstName" placeholder="John" className="bg-muted/40 border-0 h-14 px-5 rounded-2xl focus-visible:ring-2 focus-visible:ring-primary focus-visible:bg-transparent transition-all shadow-sm" />
+                    <Input id="firstName" placeholder="John" className="bg-muted/40 border-0 h-9 px-4 rounded-lg focus-visible:ring-2 focus-visible:ring-primary focus-visible:bg-transparent transition-all shadow-sm" />
                   </div>
-                  <div className="space-y-2.5">
+                  <div className="space-y-2">
                     <label htmlFor="lastName" className="text-xs font-bold uppercase tracking-wider text-muted-foreground ml-1">Last Name</label>
-                    <Input id="lastName" placeholder="Doe" className="bg-muted/40 border-0 h-14 px-5 rounded-2xl focus-visible:ring-2 focus-visible:ring-primary focus-visible:bg-transparent transition-all shadow-sm" />
+                    <Input id="lastName" placeholder="Doe" className="bg-muted/40 border-0 h-9 px-4 rounded-lg focus-visible:ring-2 focus-visible:ring-primary focus-visible:bg-transparent transition-all shadow-sm" />
                   </div>
                 </div>
-                <div className="space-y-2.5">
+                <div className="space-y-2">
                   <label htmlFor="email" className="text-xs font-bold uppercase tracking-wider text-muted-foreground ml-1">Email Address</label>
-                  <Input id="email" type="email" placeholder="john@example.com" className="bg-muted/40 border-0 h-14 px-5 rounded-2xl focus-visible:ring-2 focus-visible:ring-primary focus-visible:bg-transparent transition-all shadow-sm" />
+                  <Input id="email" type="email" placeholder="john@example.com" className="bg-muted/40 border-0 h-9 px-4 rounded-lg focus-visible:ring-2 focus-visible:ring-primary focus-visible:bg-transparent transition-all shadow-sm" />
                 </div>
-                <div className="space-y-2.5">
+                <div className="space-y-2">
                   <label htmlFor="message" className="text-xs font-bold uppercase tracking-wider text-muted-foreground ml-1">How can we help?</label>
-                  <Textarea id="message" placeholder="Tell us about your cleaning needs..." className="bg-muted/40 border-0 min-h-[160px] p-5 rounded-2xl focus-visible:ring-2 focus-visible:ring-primary focus-visible:bg-transparent transition-all resize-y shadow-sm" />
+                  <Textarea id="message" placeholder="Tell us about your cleaning needs..." className="bg-muted/40 border-0 min-h-[120px] p-4 rounded-lg focus-visible:ring-2 focus-visible:ring-primary focus-visible:bg-transparent transition-all resize-y shadow-sm" />
                 </div>
                 
-                <Button size="lg" className="w-full h-14 rounded-2xl text-lg font-bold shadow-lg shadow-primary/25 hover:shadow-xl hover:shadow-primary/40 transition-all hover:-translate-y-1 bg-gradient-to-r from-primary to-blue-600 hover:from-primary hover:to-blue-500 mt-4">
+                <Button size="lg" className="w-full rounded-lg font-bold shadow-md shadow-primary/25 hover:shadow-lg hover:shadow-primary/40 transition-all hover:-translate-y-0.5 bg-gradient-to-r from-primary to-blue-600 hover:from-primary hover:to-blue-500 mt-2">
                   Send Message
                 </Button>
                 
