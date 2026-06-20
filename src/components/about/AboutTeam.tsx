@@ -14,12 +14,6 @@ const team = [
     image: "/images/team-1.png",
   },
   {
-    name: "Geoffery",
-    role: "Operations Manager",
-    bio: "Coordinates crews, schedules, and quality across commercial and industrial sites.",
-    image: "/images/team-2.png",
-  },
-  {
     name: "Miss Ankrah",
     role: "Quality Inspector",
     bio: "Ensures every job meets the Cleanova checklist before we call it complete.",
@@ -27,8 +21,8 @@ const team = [
   },
   {
     name: "Phil",
-    role: "Cleaning Specialist",
-    bio: "Specialises in move-in/move-out and post-construction cleaning projects.",
+    role: "Operations Manager",
+    bio: "Coordinates crews, schedules, and quality across commercial and industrial sites.",
     image: "/images/team-4.png",
   },
 ];
@@ -45,7 +39,7 @@ export function AboutTeam() {
           className="mb-10 mx-auto"
         />
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 max-w-5xl mx-auto">
           {team.map((member, index) => (
             <motion.article
               key={member.name}
